@@ -10,14 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^10.5.2",
+    "flowbite-react": "^0.6.4",
+    "icons": "^1.0.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.18.0",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
@@ -28,6 +35,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
+    "tailwind-children": "^0.5.0",
+    "tailwind-saasblocks": "^0.2.0",
     "tailwindcss": "^3.3.5",
     "vite": "^4.4.5"
   }
