@@ -1,12 +1,12 @@
 import { Avatar, Navbar } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 const Navbarr = () => {
     return (
         <div>
 
 <Navbar fluid rounded>
       <Navbar.Brand href="">
-        <img src="https://i.ibb.co/q08J4NJ/360-F-294637633-4e-Ba-HE24-Eg-CSo75m-removebg-preview.png" className="mr-3 w-10 h-6 sm:h-9" alt="Logo" />
+        <img src="/logo&favicon.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">CareerFinder</span>
       </Navbar.Brand>
       <div className="flex md:order-2">
@@ -18,13 +18,17 @@ const Navbarr = () => {
       
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="/" active>
-          Home
-        </Navbar.Link>
-        <Navbar.Link href="/allJobs">All Jobs</Navbar.Link>
-        <Navbar.Link href="/blog">Blog</Navbar.Link>
-        <Navbar.Link href="#"></Navbar.Link>
-        <Navbar.Link href="#"></Navbar.Link>
+       
+
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/allJobs'>All Jobs</NavLink>
+        <NavLink to='/appliedJob'>Applied Job</NavLink>
+        <NavLink to='/myJobs'>My Jobs</NavLink>
+        <NavLink to='/addJob'>Add a Job</NavLink>
+        <NavLink to='/blogs'>Blog</NavLink>
+
+
+
       </Navbar.Collapse>
     </Navbar>
             

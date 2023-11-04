@@ -1,5 +1,5 @@
 import Banner from "./Banner/Banner";
-
+import TabSection from "./JobByCategory/TabSection";
 
 const Home = () => {
     return (
@@ -7,6 +7,7 @@ const Home = () => {
           
 
             <Banner></Banner>
+            <TabSection></TabSection>
            
             
         </div>
