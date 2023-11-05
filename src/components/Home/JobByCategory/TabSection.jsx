@@ -1,4 +1,3 @@
-
 import {
     Tabs,
     TabsHeader,
@@ -13,28 +12,31 @@ const TabSection = () => {
         {
           label: "On site job",
           value: "html",
-          desc: `It really matters and then like it really doesn't matter.
-          What matters is the people who are sparked by it. And the people 
-          who are like offended by it, it doesn't matter.`,
+          desc: <div className="card w-96 bg-base-100 shadow-xl">
+          <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+          <div className="card-body">
+            <h2 className="card-title">Shoes!</h2>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Buy Now</button>
+            </div>
+          </div>
+        </div>
         },
         {
           label: "Remote job",
           value: "react",
-          desc: `Because it's about motivating the doers. Because I'm here
-          to follow my dreams and inspire other people to follow their dreams, too.`,
+          desc: `Remote job`,
         },
         {
           label: "Hybrid job",
           value: "vue",
-          desc: `We're not always in the position that we want to be at.
-          We're constantly growing. We're constantly making mistakes. We're
-          constantly trying to express ourselves and actualize our dreams.`,
+          desc: `Hybrid job`,
         },
         {
           label: "Part time job",
           value: "angular",
-          desc: `Because it's about motivating the doers. Because I'm here
-          to follow my dreams and inspire other people to follow their dreams, too.`,
+          desc: `Part time job`,
         }
       ];
      

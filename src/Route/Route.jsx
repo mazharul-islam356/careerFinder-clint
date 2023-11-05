@@ -8,6 +8,7 @@ import AppliedJobs from "../components/ConditionalRoute/AppliedJobs/AppliedJobs"
 import MyJobs from "../components/ConditionalRoute/MyJobs/MyJobs";
 import AddAjob from "../components/ConditionalRoute/AddAJob/AddAjob";
 import Blog from "../components/Blog/Blog";
+import AllJob from "../components/AllJob/AllJob";
 
 const routes = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const routes = createBrowserRouter([
             {
                 path:'/blogs',
                 element:<Blog></Blog>
+            },
+            {
+                path: '/allJobs',
+                element:<AllJob></AllJob>
             }
 
 
