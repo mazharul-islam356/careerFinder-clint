@@ -1,6 +1,8 @@
 
 
 const AppliedJobs = () => {
+
+    
     return (
         <div>
             applied jobs

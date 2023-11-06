@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import React from "react";
+import React, { useContext } from "react";
 import {
     Card,
     CardHeader,
@@ -10,14 +10,59 @@ import {
     Button,
   Dialog,
   Input,
-  Checkbox,
   } from "@material-tailwind/react";
+import { AuthContext } from "../../Authentication/AuthProvider";
 
 const JobsCard = ({job}) => {
+
+  const authEmail = useContext(AuthContext)
+  console.log(authEmail);
+
+  const mail = authEmail.user.email
+  const namee = authEmail.user.displayName
+  // console.log(mail);
+  
+  // const {email,displayName} = applyEmail_name
+ 
+
+
+
+  console.log();
+  
+  const handleApply = e => {
+    e.preventDefault()
+    const form = e.target
+    const name = form.name.value
+    const email = form.email.value 
+    const resume = form.resume.value 
+    console.log(name,email,resume);
+
+    const applyData = {name,email,resume}
+
+   
+
+    fetch('http://localhost:5001/apply',{
+            method:"POST",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(applyData)
+        })
+        .then((res)=>res.json())
+        .then((data)=>console.log('insert apply data in mongo',data))
+
+
+
+
+  }
 
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen((cur) => !cur);
+
+
+
+
   
       const {image,title,salary,description,applicantsN} = job
     return (
@@ -66,26 +111,30 @@ const JobsCard = ({job}) => {
             >
               Enter your Name,email and resume link to Submit apply.
             </Typography>
-            <Typography className="-mb-2" variant="h6">
+
+            <form onSubmit={handleApply}>
+
+            <Typography className="mb-2" variant="h6">
               User Name
             </Typography>
-            <Input label="Your Name" size="lg" />
-            <Typography className="-mb-2" variant="h6">
+            <Input label='Your Name' defaultValue={namee} name="name" size="lg" />
+            <Typography className="mb-2" variant="h6">
               User Email
             </Typography>
-            <Input label="Your Email" size="lg" />
-            <Typography className="-mb-2" variant="h6">
+            <Input label='Your Email' defaultValue={mail} name="email" size="lg" />
+            <Typography className="mb-2" variant="h6">
                Resume Link
             </Typography>
-            <Input label="Your Resume" size="lg" />
+            <Input label="Your Resume" name="resume" size="lg" />
             
-          </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" onClick={handleOpen} fullWidth>
-            Submit Apply
-            </Button>
+            <button className="btn btn-outline btn-sm mt-4 ml-20" onClick={handleOpen}>Submit Apply</button>
             
           </CardFooter>
+
+
+            </form>
+          </CardBody>
         </Card>
       </Dialog>
       </CardFooter>
