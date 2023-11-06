@@ -1,14 +1,20 @@
+// import { useState } from "react";
+
 import { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const AllJob = () => {
 
     
 
+  const [jobData, setJobData] = useState([]);
 
-  fetch("http://localhost:5001/addJobs")
-    .then((res) => res.json())
-    .then((data) => console.log(data));
-
+  useEffect(() => {
+    fetch("http://localhost:5001/addJobs")
+      .then((res) => res.json())
+      .then((data) => setJobData(data));
+  }, []);
 
 
   return (
@@ -29,111 +35,23 @@ const AllJob = () => {
               <th></th>
             </tr>
           </thead>
+          
+
           <tbody>
-            {/* row 1 */}
-            <tr>
-              
-              <td>
-                <div className="flex items-center space-x-3">
-                  
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                
-              </td>
-              <td>job posting</td>
-              <td>applicant deadline</td>
-              <td>salary</td>
-              
-               <th>
-               <button className="btn btn-outline">details</button>
-               </th>
-             
-            </tr>
-            {/* row 2 */}
-            <tr>
-              
-              <td>
-                <div className="flex items-center space-x-3">
-                  
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                
-              </td>
-              <td>job posting</td>
-              <td>applicant deadline</td>
-              <td>salary</td>
-              
-              <th>
-               <button className="btn btn-outline">details</button>
-               </th>
-              
-            </tr>
-            {/* row 3 */}
-            <tr>
-              
-              <td>
-                <div className="flex items-center space-x-3">
-                  
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                
-              </td>
-              <td>job posting</td>
-              <td>applicant deadline</td>
-              <td>salary</td>
-            
-              <th>
-               <button className="btn btn-outline">details</button>
-               </th>
-             
-            </tr>
-            {/* row 4 */}
-            <tr>
-              
-              <td>
-                <div className="flex items-center space-x-3">
-                  
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                
-              </td>
-              <td>job posting</td>
-              <td>applicant deadline</td>
-              <td>salary</td>
-              
-              <th>
-               <button className="btn btn-outline">details</button>
-               </th>
-             
-            </tr>
+            {jobData.map((job) => (
+              <tr key={job._id}>
+                <td>{job.name}</td>
+                <td>{job.title}</td>
+                <td>{job.postingD}</td>
+                <td>{job.applicantsD}</td>
+                <td>{job.salary}</td>
+                <td>
+                  <Link to={`/details/${job._id}`}>
+                  <button className="btn btn-outline">details</button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
          
          

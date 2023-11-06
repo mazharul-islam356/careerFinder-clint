@@ -9,6 +9,7 @@ import MyJobs from "../components/ConditionalRoute/MyJobs/MyJobs";
 import AddAjob from "../components/ConditionalRoute/AddAJob/AddAjob";
 import Blog from "../components/Blog/Blog";
 import AllJob from "../components/AllJob/AllJob";
+import Details from "../components/AllJob/Details";
 
 const routes = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ const routes = createBrowserRouter([
             {
                 path: '/allJobs',
                 element:<AllJob></AllJob>
+            },
+            {
+                path: '/details/:id',
+                element:<Details></Details>,
+                loader: () => fetch('http://localhost:5001/addJobs')
             }
 
 
