@@ -18,7 +18,8 @@ const routes = createBrowserRouter([
         children:[
             {
             path: '/',
-            element:<Home></Home>
+            element:<Home></Home>,
+            loader: () => fetch('http://localhost:5001/addJobs')
             },
             {
                 path:'/login',
@@ -30,7 +31,8 @@ const routes = createBrowserRouter([
             },
             {
                 path:'/appliedJob',
-                element:<AppliedJobs></AppliedJobs>
+                element:<AppliedJobs></AppliedJobs>,
+                loader: () => fetch('http://localhost:5001/apply')
             },
             {
                 path:'/myJobs',

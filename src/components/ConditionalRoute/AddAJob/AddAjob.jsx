@@ -36,10 +36,10 @@ const AddAjob = () => {
         .then((res)=>res.json())
         .then((data)=>console.log('insert data in mongo',data))
 
-
-
-
     }
+    
+
+
   return (
     <div>
       <Card color="transparent" shadow={false}>

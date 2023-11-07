@@ -39,8 +39,6 @@ const JobsCard = ({job}) => {
 
     const applyData = {name,email,resume}
 
-   
-
     fetch('http://localhost:5001/apply',{
             method:"POST",
             headers:{
@@ -93,12 +91,17 @@ const JobsCard = ({job}) => {
       </CardBody>
       <CardFooter className=" mx-auto ">
         <Button onClick={handleOpen} >Apply Now</Button>
+
+
+{/* -----------modal---------- */}
+        
         <Dialog
         size="xs"
         open={open}
         handler={handleOpen}
         className="bg-transparent shadow-none"
       >
+
         <Card className="mx-auto w-full max-w-[24rem]">
           <CardBody className="flex flex-col gap-4">
             <Typography variant="h4" color="blue-gray">
@@ -128,6 +131,7 @@ const JobsCard = ({job}) => {
             <Input label="Your Resume" name="resume" size="lg" />
             
           <CardFooter className="pt-0">
+
             <button className="btn btn-outline btn-sm mt-4 ml-20" onClick={handleOpen}>Submit Apply</button>
             
           </CardFooter>

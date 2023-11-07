@@ -1,6 +1,21 @@
 import { Avatar, Navbar } from 'flowbite-react';
-import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import {  NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../Authentication/AuthProvider';
 const Navbarr = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => console.log("log out succecfullly"))
+      .catch((err) => console.log(err));
+  };
+
+
+
+
+
     return (
         <div>
 
@@ -11,25 +26,71 @@ const Navbarr = () => {
       </Navbar.Brand>
       <div className="flex md:order-2">
 
-        <Link to='/login'><button href="/login" className='btn mr-8'>Login</button></Link>
+        {/* <Link to='/login'><button href="/login" className='btn mr-8'>Login</button></Link> */}
+
+        {
+          user? (<NavLink onClick={handleLogOut}>
+
+<button className='btn mr-8'>Log Out</button>
+
+          </NavLink>): (<NavLink to='/login' onClick={handleLogOut}>
+
+<button href="/login" className='btn mr-8'>Login</button>
+
+          </NavLink>)
+         
+        }
+
+        {
+
+         
+          user && <Avatar alt="User" img={user.photoURL}
+           rounded />
+        }
         
           
-            <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+            
       
       </div>
-      <Navbar.Collapse>
        
+<div className='flex gap-10'>
+  
+<NavLink className={({ isActive, isPending }) =>
+          isPending ? "" : isActive ? "text-blue-400 " : ""
+        } to='/'>Home</NavLink>
+        <NavLink
+        className={({ isActive, isPending }) =>
+        isPending ? "" : isActive ? "text-blue-400 " : ""
+      }
+        
+        to='/allJobs'>All Jobs</NavLink>
+        {
+          user && <>
+          <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "" : isActive ? "text-blue-400 " : ""
+        }
+          to='/appliedJob'>Applied Job</NavLink>
+          <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "" : isActive ? "text-blue-400 " : ""
+        }
+          to='/myJobs'>My Jobs</NavLink>
+          <NavLink
+          className={({ isActive, isPending }) =>
+          isPending ? "" : isActive ? "text-blue-400 " : ""
+        }
+          to='/addJob'>Add a Job</NavLink></>
+        }
+        <NavLink
+        className={({ isActive, isPending }) =>
+        isPending ? "" : isActive ? "text-blue-400 " : ""
+      }
+        to='/blogs'>Blog</NavLink>
+</div>
 
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/allJobs'>All Jobs</NavLink>
-        <NavLink to='/appliedJob'>Applied Job</NavLink>
-        <NavLink to='/myJobs'>My Jobs</NavLink>
-        <NavLink to='/addJob'>Add a Job</NavLink>
-        <NavLink to='/blogs'>Blog</NavLink>
 
 
-
-      </Navbar.Collapse>
     </Navbar>
             
         </div>
