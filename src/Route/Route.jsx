@@ -10,6 +10,7 @@ import AddAjob from "../components/ConditionalRoute/AddAJob/AddAjob";
 import Blog from "../components/Blog/Blog";
 import AllJob from "../components/AllJob/AllJob";
 import Details from "../components/AllJob/Details";
+import Update from "../components/ConditionalRoute/MyJobs/Update";
 
 const routes = createBrowserRouter([
     {
@@ -36,7 +37,9 @@ const routes = createBrowserRouter([
             },
             {
                 path:'/myJobs',
-                element:<MyJobs></MyJobs>
+                element:<MyJobs></MyJobs>,
+                loader: () => fetch('http://localhost:5001/addJobs')
+                
             },
             {
                 path:'/addJob',
@@ -48,12 +51,17 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/allJobs',
-                element:<AllJob></AllJob>
+                element:<AllJob></AllJob>,
+                loader: () => fetch('http://localhost:5001/addJobs')
             },
             {
                 path: '/details/:id',
                 element:<Details></Details>,
                 loader: () => fetch('http://localhost:5001/addJobs')
+            },
+            {
+                path:'/update',
+                element:<Update></Update>
             }
 
 
