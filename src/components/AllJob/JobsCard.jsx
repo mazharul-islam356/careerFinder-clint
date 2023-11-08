@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import {
     Card,
     CardHeader,
@@ -13,9 +13,19 @@ import {
   } from "@material-tailwind/react";
 import { AuthContext } from "../../Authentication/AuthProvider";
 import Swal from "sweetalert2";
+import emailjs from '@emailjs/browser';
+
+
+
+
+
+
 
 const JobsCard = ({job}) => {
 
+
+  
+  const formm = useRef();
   const authEmail = useContext(AuthContext)
   console.log(authEmail);
 
@@ -60,10 +70,34 @@ const JobsCard = ({job}) => {
           });
         })
 
+       
+
+// --------------send email section--------------
+
+        emailjs.sendForm('service_74twu2o', 'template_yno6ow1', formm.current, 'f8OiDj-w70sXgI4zP')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+
 
 
 
   }
+
+ 
+
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+  //     .then((result) => {
+  //         console.log(result.text);
+  //     }, (error) => {
+  //         console.log(error.text);
+  //     });
+  // };
 
 
     const [open, setOpen] = React.useState(false);
@@ -126,7 +160,7 @@ const JobsCard = ({job}) => {
               Enter your Name,email and resume link to Submit apply.
             </Typography>
 
-            <form onSubmit={handleApply}>
+            <form ref={formm} onSubmit={handleApply}>
 
             <Typography className="mb-2" variant="h6">
               User Name
