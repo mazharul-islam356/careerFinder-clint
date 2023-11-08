@@ -1,5 +1,13 @@
 // import { useState } from "react";
 
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography
+ 
+} from "@material-tailwind/react";
+
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -49,50 +57,53 @@ const AllJob = () => {
              
               </div>
      
-              <div>
-            <table className="table flex ">
-          {/* head */}
-          <thead className="flex">
-            <tr>
+              <div className="grid lg:grid-cols-2 mb-10 gap-10 mt-10">
                 
-              
-              <th>Name</th>
-              <th>Job title</th>
-              <th>Job Posting Date</th>
-              <th>Application Deadline</th>
-              <th>Salary Range</th>
-              <th></th>
-            </tr>
-          </thead>
+           
         {
           jobData
           .filter((item) => {
           return searchValue.toLowerCase() === ""
           ? item
           : item.category.toLowerCase().includes(searchValue);
-        }).map(card=><tbody className="flex" key={card._id}>
-  {
-    <tr className="flex" key={card._id}>
-      <td>{card.name}</td>
-      <td>{card.title}</td>
-      <td>{card.postingD}</td>
-      <td>{card.applicantsD}</td>
-      <td>{card.salary}</td>
-      <td>
-        <Link to={`/details/${card._id}`}>
+        }).map(card=><div key={card._id} >
+      
+       <Card key={card._id} className="w-full max-w-[48rem] flex-row">
+       <CardHeader
+         shadow={false}
+         floated={false}
+         className="m-0 w-2/5 shrink-0 rounded-r-none"
+       >
+         <img
+           src={card.image}
+           className="h-full w-full object-cover"
+         />
+       </CardHeader>
+       <CardBody>
+         <Typography variant="h6" color="gray" className="mb-4 uppercase">
+           {card.category}
+         </Typography>
+         <Typography variant="h4" color="blue-gray" className="mb-2">
+           {card.title}
+         </Typography>
+         <Typography color="gray" className=" font-normal">
+          <span className="font-serif font-semibold">Applicantion Date: </span> {card.applicantsD}
+         </Typography>
+         <Typography color="gray" className="mb-8 font-normal">
+         <span className="font-serif font-semibold">Salary Range: </span> {card.salary}
+         </Typography>
+         <Link to={`/details/${card._id}`}>
         <button className="btn btn-outline">details</button>
         </Link>
-      </td>
-    </tr>
-  }
-</tbody>)
+       </CardBody>
+     </Card>
+      
+       
+   </div>)
 
 
 }
-                     
-         
-        </table>
-        </div>
+ </div>
 
       
       </div>

@@ -1,10 +1,4 @@
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    Typography
-   
-  } from "@material-tailwind/react";
+
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -65,39 +59,85 @@ import Swal from "sweetalert2";
 
 
     return (
-        <div className="grid lg:grid-cols-2 mb-10 gap-10 mt-10">
-           {
-            jobs.map(data=><Card key={data._id} className="w-full max-w-[48rem] flex-row">
-            <CardHeader
-              shadow={false}
-              floated={false}
-              className="m-0 w-2/5 shrink-0 rounded-r-none"
-            >
-              <img
-                src={data.image}
-                className="h-full w-full object-cover"
-              />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h6" color="gray" className="mb-4 uppercase">
-                {data.category}
-              </Typography>
-              <Typography variant="h4" color="blue-gray" className="mb-2">
-                {data.title}
-              </Typography>
-              <Typography color="gray" className=" font-normal">
-               <span className="font-serif font-semibold">Applicantion Date: </span> {data.applicantsD}
-              </Typography>
-              <Typography color="gray" className="mb-8 font-normal">
-              <span className="font-serif font-semibold">Salary Range: </span> {data.salary}
-              </Typography>
-              <Link to='/update'><button className="btn mr-4 btn-outline btn-accent btn-sm">Update</button></Link>
-              <button onClick={()=>handleDelete(data._id)} className="btn btn-error btn-outline btn-sm">Delete</button>
-            </CardBody>
-          </Card>)
-           }
+
+
+
+
+      <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        
+        
+        <th>Image & Name</th>
+        <th>Cetagory</th>
+        <th>Application Date</th>
+        <th>Application Deadline</th>
+        <th>Posting Date</th>
+        <th>Salary</th>
+        <th></th>
+      </tr>
+    </thead>
+    
+
+    {
+      jobs.map(job=><tbody key={job._id}>
+        {/* row 1 */}
+        <tr>
+          
+          <td>
             
-        </div>
+            <div className="flex items-center space-x-3">
+
+            <button onClick={()=>handleDelete(job._id)} className="btn btn-circle btn-outline">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+</button>
+
+            <div className="avatar">
+    <div className="w-24 rounded-xl">
+      <img src={job.image} />
+    </div>
+  </div>
+            
+              <div>
+                <div className="font-bold">{job.name}</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            {job.category}
+            <br/>
+            
+          </td>
+          <td>{job.applicantsN}</td>
+          <td>{job.applicantsD}</td>
+          <td>{job.postingD}</td>
+          <td>{job.salary}</td>
+          <th>
+          <Link to='/update'><button className="btn mr-4 btn-outline btn-accent btn-sm">Update</button></Link>
+          </th>
+        </tr>
+       
+       
+      </tbody>)
+    }
+    
+    
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
     );
 };
 
