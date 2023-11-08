@@ -5,10 +5,12 @@ import Footer from "../components/shared/Footer/Footer";
 
 const Root = () => {
     return (
-        <div className="w-11/12 mx-auto my-6">
+        <div >
 
+            <div className="w-11/12 mx-auto my-6">
             <Navbarr></Navbarr>
             <Outlet></Outlet>
+            </div>
             <Footer></Footer>
             <Toaster></Toaster>
             

@@ -1,8 +1,15 @@
-# React + Vite
+# **Techtopia**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Livie link: 
 
-Currently, two official plugins are available:
+# _5 feature of this web site:_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- You can search 4 categories of jobs through this website
+
+- You can see all jobs in the Alljob section
+
+- If you are logged in, you will also have your profile picture
+
+- In the Add Job section you can add your job
+
+- You can delete and update your jobs in the My Jobs section

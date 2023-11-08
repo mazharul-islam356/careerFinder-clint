@@ -27,17 +27,17 @@ const TabSection = () => {
 
 
 
-      <TabList className="menu-tab lg:flex lg:justify-around lg:ml-0 ml-4 lg:space-x-0 space-y-4 lg:space-y-0 space-x-4  mt-4">
+      <TabList className="menu-tab lg:flex lg:justify-around lg:ml-0 ml-4 lg:space-x-0 space-y-4 lg:space-y-0 space-x-4  mt-10">
 
-        <Tab className="btn" onClick={()=>setAllJobs(tabData)}>All Jobs</Tab>
+        <Tab className="btn btn-outline btn-sm" onClick={()=>setAllJobs(tabData)}>All Jobs</Tab>
 
-        <Tab className="btn" onClick={()=>handlefilterJob('On Site Job')}>On Site Job</Tab>
+        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('On Site Job')}>On Site Job</Tab>
 
-        <Tab className="btn" onClick={()=>handlefilterJob('Remote Job')}>Remote Job</Tab>
+        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('Remote Job')}>Remote Job</Tab>
 
-        <Tab className="btn" onClick={()=>handlefilterJob('Hybrid Job')}>Hybrid Job</Tab>
+        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('Hybrid Job')}>Hybrid Job</Tab>
 
-        <Tab className="btn" onClick={()=>handlefilterJob('Part time Job')}>Part time Job</Tab>
+        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('Part time Job')}>Part time Job</Tab>
 
       </TabList>
 
