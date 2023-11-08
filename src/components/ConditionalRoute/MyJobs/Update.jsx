@@ -3,7 +3,12 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 const Update = () => {
+
+  const update = useLoaderData()
+  const {_id,name,image,title,category,salary,description,postingD,applicantsN,applicantsD} = update
 
     const [startDate, setStartDate] = useState(new Date());
 
@@ -22,6 +27,32 @@ const Update = () => {
 
         const  formData = {name,image,title,category,salary,description,postingD,applicantsN,applicantsD}
         console.log(formData);
+
+        fetch(`https://assingment-11-server-eight.vercel.app/addJobs/${_id}`,{
+            method:"PUT",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then((res)=>res.json())
+        .then((data)=>{console.log('insert data in mongo',data)
+
+        if(data.insertedId){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Updated Succesfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      
+      
+      
+      
+      
+      })
 
         
 

@@ -62,7 +62,8 @@ const routes = createBrowserRouter([
             },
             {
                 path:'/update',
-                element:<Update></Update>
+                element:<Update></Update>,
+                loader: () => fetch('https://assingment-11-server-eight.vercel.app/addJobs')
             }
 
 

@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../../Authentication/AuthProvider";
 import { Textarea } from "flowbite-react";
+import Swal from "sweetalert2";
 // import { AuthContext } from "../../../Authentication/AuthProvider";
 
 const AddAjob = () => {
@@ -36,7 +37,23 @@ const AddAjob = () => {
             body: JSON.stringify(formData)
         })
         .then((res)=>res.json())
-        .then((data)=>console.log('insert data in mongo',data))
+        .then((data)=>{console.log('insert data in mongo',data)
+
+        if(data.insertedId){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Added Succesfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      
+      
+      
+      
+      
+      })
 
     }
 
