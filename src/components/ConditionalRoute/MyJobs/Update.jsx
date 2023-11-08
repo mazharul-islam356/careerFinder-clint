@@ -8,7 +8,9 @@ import Swal from "sweetalert2";
 const Update = () => {
 
   const update = useLoaderData()
-  const {_id,name,image,title,category,salary,description,postingD,applicantsN,applicantsD} = update
+  console.log(update);
+  const {_id,name,image,title,salary,description,postingD,applicantsN,applicantsD} = update
+  console.log(name);
 
     const [startDate, setStartDate] = useState(new Date());
 
@@ -38,11 +40,11 @@ const Update = () => {
         .then((res)=>res.json())
         .then((data)=>{console.log('insert data in mongo',data)
 
-        if(data.insertedId){
+        if(data.acknowledged){
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Updated Succesfully",
+            title: "Your data has been updated!",
             showConfirmButton: false,
             timer: 1500
           });
@@ -76,6 +78,7 @@ const Update = () => {
               </Typography>
               <Input
               name="name"
+              defaultValue={name}
                 size="lg"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
@@ -87,6 +90,7 @@ const Update = () => {
               </Typography>
               <Input
               name="image"
+              defaultValue={image}
                 size="lg"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
@@ -97,6 +101,7 @@ const Update = () => {
                 Job title
               </Typography>
               <Input
+               defaultValue={title}
               name="title"
                 size="lg"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -107,8 +112,8 @@ const Update = () => {
               <Typography variant="h6"  color="blue-gray" className="-mb-3">
                 Job Category
               </Typography>
-              <select name="category" className="select select-bordered w-96">
-                <option disabled selected>
+              <select defaultValue={'defult'} name="category" className="select select-bordered w-96">
+                <option disabled value='defult'>
                 Pic a Job Category
                 </option>
                 <option>On Site Job</option>
@@ -120,6 +125,7 @@ const Update = () => {
                 Salary Range
               </Typography>
               <Input
+              defaultValue={salary}
               name="salary"
                 size="lg"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -137,6 +143,7 @@ const Update = () => {
                 Job Description
               </Typography>
               <Input
+              defaultValue={description}
               name="description"
                 size="lg"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -148,6 +155,7 @@ const Update = () => {
                 Job Posting Date
               </Typography>
               <Input
+              defaultValue={postingD}
               name="postingD"
                 type="text"
                 size="lg"
@@ -161,6 +169,7 @@ const Update = () => {
                 Applicants Number
               </Typography>
               <Input
+              defaultValue={applicantsN}
               name="applicantsN"
                 size="lg"
                 placeholder=""
@@ -173,6 +182,7 @@ const Update = () => {
                 Application Deadline
               </Typography>
               <DatePicker
+              defaultValue={applicantsD}
               name="applicantsD"
       showIcon
       selected={startDate}

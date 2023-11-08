@@ -10,8 +10,10 @@ import {
 
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { TableTitle } from "../../Head/Head";
 
 const AllJob = () => {
+  TableTitle('CareerFinder | All Jobs')
 
   const [searchValue, setSearchValue] = useState("");
   console.log(searchValue);

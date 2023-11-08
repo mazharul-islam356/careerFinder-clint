@@ -4,8 +4,11 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import React from "react";
+import { TableTitle } from "../../Head/Head";
 
 const Blog = () => {
+
+  TableTitle('CareerFinder | Blog')
   const [open, setOpen] = React.useState(1);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
@@ -94,11 +97,19 @@ const Blog = () => {
           Explain my code...
         </AccordionHeader>
         <AccordionBody>
-        I have declared first route in my code then declared all route components in that route then added home section inside home and added banner tap section section 1 and section two inside homeroute then created home all job apply job my job and block in nepal And I have given a login button and profile picture which will be written login if logged in and if logged out then login will be written In all jobs there is a search box in which category wise jobs can be searched and my added jobs can be seen in my jobs and from here jobs I can add a job in between updates and deletes
+          I have declared first route in my code then declared all route
+          components in that route then added home section inside home and added
+          banner tap section section 1 and section two inside homeroute then
+          created home all job apply job my job and block in nepal And I have
+          given a login button and profile picture which will be written login
+          if logged in and if logged out then login will be written In all jobs
+          there is a search box in which category wise jobs can be searched and
+          my added jobs can be seen in my jobs and from here jobs I can add a
+          job in between updates and deletes
         </AccordionBody>
       </Accordion>
     </div>
   );
-}
+};
 
 export default Blog;

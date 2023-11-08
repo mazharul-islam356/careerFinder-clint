@@ -5,7 +5,7 @@ import { FaSearchDollar,FaRegHandshake } from 'react-icons/fa';
 
 const Section01 = () => {
   return (
-    <div className='h-[400px] bg-blue-gray-100 mb-10'>
+    <div className='h-[400px] rounded-lg bg-blue-gray-100 mb-10'>
       <div className="grid lg:grid-cols-3 justify-center items-center ml-14 my-10">
 
         {/* card01 */}

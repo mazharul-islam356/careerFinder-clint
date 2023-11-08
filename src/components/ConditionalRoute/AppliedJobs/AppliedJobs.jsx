@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Authentication/AuthProvider";
+import { TableTitle } from "../../../Head/Head";
 
 
 const AppliedJobs = () => {
+  TableTitle('CareerFinder | Applied Jobs')
 
     const [appliedData, setAppliedData] = useState([]);
     const user = useContext(AuthContext)
