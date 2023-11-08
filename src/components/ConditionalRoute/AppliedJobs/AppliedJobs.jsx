@@ -1,15 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Authentication/AuthProvider";
 
 
 const AppliedJobs = () => {
 
     const [appliedData, setAppliedData] = useState([]);
+    const user = useContext(AuthContext)
+
+    const useR = user.user.email 
+    console.log(useR);
 
   useEffect(() => {
-    fetch("http://localhost:5001/apply")
+    fetch(`https://assingment-11-server-eight.vercel.app/apply?email/${useR}`)
       .then((res) => res.json())
       .then((data) => setAppliedData(data));
-  }, []);
+  }, [useR]);
 
     
     return (

@@ -11,6 +11,7 @@ import Blog from "../components/Blog/Blog";
 import AllJob from "../components/AllJob/AllJob";
 import Details from "../components/AllJob/Details";
 import Update from "../components/ConditionalRoute/MyJobs/Update";
+import PrivetRoute from "../Authentication/PrivetRoute";
 
 const routes = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const routes = createBrowserRouter([
             {
             path: '/',
             element:<Home></Home>,
-            loader: () => fetch('http://localhost:5001/addJobs')
+            loader: () => fetch('https://assingment-11-server-eight.vercel.app/addJobs')
             },
             {
                 path:'/login',
@@ -32,18 +33,18 @@ const routes = createBrowserRouter([
             },
             {
                 path:'/appliedJob',
-                element:<AppliedJobs></AppliedJobs>,
-                loader: () => fetch('http://localhost:5001/apply')
+                element:<PrivetRoute><AppliedJobs></AppliedJobs></PrivetRoute>,
+                loader: () => fetch('https://assingment-11-server-eight.vercel.app/apply')
             },
             {
                 path:'/myJobs',
-                element:<MyJobs></MyJobs>,
-                loader: () => fetch('http://localhost:5001/addJobs')
+                element:<PrivetRoute><MyJobs></MyJobs></PrivetRoute>,
+                loader: () => fetch('https://assingment-11-server-eight.vercel.app/addJobs')
                 
             },
             {
                 path:'/addJob',
-                element:<AddAjob></AddAjob>
+                element:<PrivetRoute><AddAjob></AddAjob></PrivetRoute>
             },
             {
                 path:'/blogs',
@@ -52,12 +53,12 @@ const routes = createBrowserRouter([
             {
                 path: '/allJobs',
                 element:<AllJob></AllJob>,
-                loader: () => fetch('http://localhost:5001/addJobs')
+                loader: () => fetch('https://assingment-11-server-eight.vercel.app/addJobs')
             },
             {
                 path: '/details/:id',
-                element:<Details></Details>,
-                loader: () => fetch('http://localhost:5001/addJobs')
+                element:<PrivetRoute><Details></Details></PrivetRoute>,
+                loader: () => fetch('https://assingment-11-server-eight.vercel.app/addJobs')
             },
             {
                 path:'/update',

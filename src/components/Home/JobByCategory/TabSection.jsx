@@ -1,110 +1,82 @@
-import {
-    Tabs,
-    TabsHeader,
-    TabsBody,
-    Tab,
-    TabPanel,
-  } from "@material-tailwind/react";
+
 // import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { Tab, TabList, Tabs } from "react-tabs";
 
 const TabSection = () => {
 
-  // const [onsiteData,setonsiteData] = useState([])
+
   
   const tabData = useLoaderData()
-  console.log(tabData)
+  // console.log(tabData)
 
-  // const findJob = tabData.foreach(singleData=>)
+  const [allJobs,setAllJobs] = useState(tabData)
 
+  const handlefilterJob = (catchJob) => {
+    const updatedJob = tabData.filter((currentJob)=>{
+      return currentJob.category === catchJob
+    })
+    setAllJobs(updatedJob)
+  }
 
-
-    const data = [
-      
-        {
-          label: "On site job",
-          value: "On site job",
-          desc: 
-            
-         <div className="card w-96 bg-base-100 shadow-xl">
-          <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-          <div className="card-body">
-            <h2 className="card-title">dhd</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-          
-        },
-        {
-          label: "Remote job",
-          value: "Remote job",
-          desc: `Remote job`,
-        },
-        {
-          label: "Hybrid job",
-          value: "Hybrid job",
-          desc: `Hybrid job`,
-        },
-        {
-          label: "Part time job",
-          value: "Part time job",
-          desc: `Part time job`,
-        }
-      ];
-
-      // if(tabData === data)
-
-      // useEffect(()=>{
-
-      //   const filterOnsite = tabData.map(dataa=>
-       
-      //     setonsiteData(dataa)
-
-      //     )
-
-      //     console.log(filterOnsite);
-    
-    
-      // },[tabData])
-    
-      // console.log(onsiteData);
-
-      
-     
 
     
   return (
-    <div className="my-10">
-
-        <h1 className="text-center text-3xl p-10">Job by Category</h1>
+    <Tabs>
 
 
-<Tabs value='html'>
-      <TabsHeader>
-        {data.map(({ label, value }) => (
-          <Tab key={value} value={value}>
-            {label}
-          </Tab>
-        ))}
-      </TabsHeader>
-      <TabsBody>
-        {data.map(({ value, desc }) => (
-          <TabPanel key={value} value={value}>
-            {desc}
-          </TabPanel>
-        ))}
-      </TabsBody>
+
+      <TabList className="menu-tab lg:flex lg:justify-around lg:ml-0 ml-4 lg:space-x-0 space-y-4 lg:space-y-0 space-x-4  mt-4">
+
+        <Tab className="btn" onClick={()=>setAllJobs(tabData)}>All Jobs</Tab>
+
+        <Tab className="btn" onClick={()=>handlefilterJob('On Site Job')}>On Site Job</Tab>
+
+        <Tab className="btn" onClick={()=>handlefilterJob('Remote Job')}>Remote Job</Tab>
+
+        <Tab className="btn" onClick={()=>handlefilterJob('Hybrid Job')}>Hybrid Job</Tab>
+
+        <Tab className="btn" onClick={()=>handlefilterJob('Part time Job')}>Part time Job</Tab>
+
+      </TabList>
+
+
+      <div className="grid lg:grid-cols-2 lg:ml-52 ml-14 mb-4 mt-5">
+        {
+          allJobs.map(job=>{
+            const {_id,name,title,postingD,salary,applicantsN} = job
+            return(
+              <div key={_id} className="card lg:w-96 w-72 mb-4 bg-base-100 shadow-xl">
+          <div className="card-body">
+            <h2 className="card-title">{name}</h2>
+            <p> <span className="font-serif font-bold">Job title: </span> {title}</p>
+            <p><span className="font-serif font-bold">Posting Date: </span>{postingD}</p>
+            <p><span className="font-serif font-bold">Salary: </span>{salary}</p>
+            <p><span className="font-serif font-bold">Applicants Number: </span>{applicantsN}</p>
+            <div className="card-actions justify-center mt-2">
+            <Link to={`/details/${_id}`}>
+        <button className="btn btn-outline">View Details</button>
+        </Link>
+            </div>
+          </div>
+        </div>
+            ) 
+          }
+            )
+        }
+      </div>
+
+
+
+
+
+
+
+
+
+
     </Tabs>
-
-
-
-
-
-      
-    </div>
   );
 };
 

@@ -22,7 +22,6 @@ const Details = () => {
   return (
     <div>
 
-     {/* <JobsCard job={joB}></JobsCard> */}
      <JobsCard job={joB}></JobsCard>
 
     </div>

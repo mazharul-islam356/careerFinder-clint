@@ -6,6 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const AllJob = () => {
 
   const [searchValue, setSearchValue] = useState("");
+  console.log(searchValue);
 
 
 
@@ -27,7 +28,7 @@ const AllJob = () => {
                 value={searchValue}
                   type="text"
                   placeholder="Search…"
-                  className="input input-bordered w-[1108px]"
+                  className="input input-bordered lg:w-[1108px]"
                 />
                 <button className="btn btn-square w-16">
                   <svg
@@ -49,9 +50,9 @@ const AllJob = () => {
               </div>
      
               <div>
-            <table className="table">
+            <table className="table flex ">
           {/* head */}
-          <thead>
+          <thead className="flex">
             <tr>
                 
               
@@ -63,15 +64,15 @@ const AllJob = () => {
               <th></th>
             </tr>
           </thead>
-{
+        {
           jobData
- .filter((item) => {
-   return searchValue.toLowerCase() === ""
-     ? item
-     : item.category.toLowerCase().includes(searchValue);
-}).map(card=><tbody key={card._id}>
+          .filter((item) => {
+          return searchValue.toLowerCase() === ""
+          ? item
+          : item.category.toLowerCase().includes(searchValue);
+        }).map(card=><tbody className="flex" key={card._id}>
   {
-    <tr key={card._id}>
+    <tr className="flex" key={card._id}>
       <td>{card.name}</td>
       <td>{card.title}</td>
       <td>{card.postingD}</td>
@@ -88,17 +89,12 @@ const AllJob = () => {
 
 
 }
-          
-
-          
-         
+                     
          
         </table>
         </div>
 
-        {
-            // console.log(jobData)
-        }
+      
       </div>
     </div>
   );

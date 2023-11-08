@@ -12,6 +12,7 @@ import {
   Input,
   } from "@material-tailwind/react";
 import { AuthContext } from "../../Authentication/AuthProvider";
+import Swal from "sweetalert2";
 
 const JobsCard = ({job}) => {
 
@@ -35,11 +36,12 @@ const JobsCard = ({job}) => {
     const name = form.name.value
     const email = form.email.value 
     const resume = form.resume.value 
+    
     console.log(name,email,resume);
 
     const applyData = {name,email,resume}
 
-    fetch('http://localhost:5001/apply',{
+    fetch('https://assingment-11-server-eight.vercel.app/apply',{
             method:"POST",
             headers:{
                 'Content-Type': 'application/json'
@@ -47,7 +49,16 @@ const JobsCard = ({job}) => {
             body: JSON.stringify(applyData)
         })
         .then((res)=>res.json())
-        .then((data)=>console.log('insert apply data in mongo',data))
+        .then((data)=>{
+          console.log('insert apply data in mongo',data)
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your apply is succecfully submited!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        })
 
 
 

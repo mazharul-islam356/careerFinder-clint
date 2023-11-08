@@ -24,10 +24,11 @@ const AddAjob = () => {
         const applicantsN = form.applicantsN.value
         const applicantsD = form.applicantsD.value
 
+
         const  formData = {name,image,title,category,salary,description,postingD,applicantsN,applicantsD}
         console.log(formData);
 
-        fetch('http://localhost:5001/addJobs',{
+        fetch('https://assingment-11-server-eight.vercel.app/addJobs',{
             method:"POST",
             headers:{
                 'Content-Type': 'application/json'
@@ -42,7 +43,8 @@ const AddAjob = () => {
     const userr = useContext(AuthContext)
 
     const userName = userr.user
-    console.log(userName);
+  
+    console.log(userName.displayName);
     
 
 
@@ -54,7 +56,7 @@ const AddAjob = () => {
 
         <form onSubmit={handleAddJob}>
 
-        <div className="flex gap-10 justify-evenly">
+        <div className="lg:flex gap-10 justify-evenly">
         <div  className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
             <div className="mb-1 flex flex-col gap-6">
               <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -94,8 +96,8 @@ const AddAjob = () => {
               <Typography variant="h6"  color="blue-gray" className="-mb-3">
                 Job Category
               </Typography>
-              <select name="category" className="select select-bordered w-96">
-                <option disabled selected>
+              <select defaultValue={'defult'} name="category" className="select select-bordered w-96">
+                <option value='defult' disabled >
                 Pic a Job Category
                 </option>
                 <option>On Site Job</option>

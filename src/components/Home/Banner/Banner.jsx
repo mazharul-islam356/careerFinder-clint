@@ -19,8 +19,8 @@ const Banner = () => {
               letter writing tips, interview preparation advice, and more.
             </p>
             {/* search icon */}
-            <div className="form-control ml-24">
-              <div className="input-group">
+            <div className="form-control ">
+              <div className="input-group justify-center">
                 <input
                   type="text"
                   placeholder="Search…"

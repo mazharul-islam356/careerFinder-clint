@@ -7,6 +7,7 @@ import {
   } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
     const MyJobs = () => {
     const myJobData = useLoaderData()
@@ -15,23 +16,47 @@ import { Link, useLoaderData } from "react-router-dom";
 
     const handleDelete = _id => {
         console.log(_id);
-        fetch(`http://localhost:5001/addJobs/${_id}`,{
-            method:"DELETE"
-        })
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data)
-        
-          if(data.deletedCount>0){
-            alert('deleted succecfully')
-            const remaining = jobs.filter(job=>job._id !== _id)
-            setJob(remaining)
 
-            console.log(remaining);
+
+
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+    
+            fetch(`https://assingment-11-server-eight.vercel.app/addJobs/${_id}`, {
+              method: "DELETE"
+            
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+           
+                if(data.deletedCount>0){
+    
+                  
+                
+                  Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                  )
+    
+                  const remaining = jobs.filter(job=>job._id !== _id)
+                  setJob(remaining)
+                  console.log(remaining);
+                  
+                  
+                }
+              });
+            
           }
-        
-      
-        
         })
         
     }
@@ -40,7 +65,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 
     return (
-        <div className="grid grid-cols-2 mb-10 gap-10 mt-10">
+        <div className="grid lg:grid-cols-2 mb-10 gap-10 mt-10">
            {
             jobs.map(data=><Card key={data._id} className="w-full max-w-[48rem] flex-row">
             <CardHeader
