@@ -99,6 +99,6 @@ const Blog = () => {
       </Accordion>
     </div>
   );
-};
+}
 
 export default Blog;
