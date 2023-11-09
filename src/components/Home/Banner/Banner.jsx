@@ -2,13 +2,14 @@ const Banner = () => {
   return (
     <div>
       <div
-        className="hero h-[600px]"
-        style={{
+        className="hero  h-[600px]"
+        style={{ 
           backgroundImage:
             "url(https://i.ibb.co/2nsqZ1d/job-searching.jpg)",
+            borderRadius: "10px"
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-overlay rounded-lg bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold mb-2">Find Your Next Dream Job</h1>

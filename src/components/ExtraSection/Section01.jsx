@@ -5,11 +5,11 @@ import { FaSearchDollar,FaRegHandshake } from 'react-icons/fa';
 
 const Section01 = () => {
   return (
-    <div className='h-[400px] rounded-lg bg-blue-gray-100 mb-10'>
-      <div className="grid lg:grid-cols-3 justify-center items-center ml-14 my-10">
+    <div className='lg:h-[400px] rounded-lg bg-blue-gray-100 mb-10'>
+      <div className="grid lg:grid-cols-3 justify-center items-center lg:ml-14 my-10 ">
 
         {/* card01 */}
-        <div className="card w-96 mt-16 bg-base-100 shadow-xl">
+        <div className="card w-96 lg:mt-16 bg-base-100 shadow-xl">
           <div className="card-body">
             <div className='text-5xl p-4 text-[#4C9AA7] ml-32'>   <BsFillBarChartLineFill></BsFillBarChartLineFill></div>
             <div className='text-center text-xl font-semibold'>Set your salary

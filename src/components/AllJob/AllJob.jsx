@@ -59,7 +59,7 @@ const AllJob = () => {
              
               </div>
      
-              <div className="grid lg:grid-cols-2 mb-10 gap-10 mt-10">
+              <div className="grid lg:grid-cols-2 mr-16 lg:mr-0 mb-10 gap-10 mt-10">
                 
            
         {

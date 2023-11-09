@@ -24,23 +24,20 @@ import emailjs from '@emailjs/browser';
 const JobsCard = ({job}) => {
 
 
+
+
   
   const formm = useRef();
   const authEmail = useContext(AuthContext)
-  console.log(authEmail);
 
   const mail = authEmail.user.email
   const namee = authEmail.user.displayName
-  // console.log(mail);
   
-  // const {email,displayName} = applyEmail_name
  
-
-
 
   console.log();
   
-  const handleApply = e => {
+  const handleApply = async e => {
     e.preventDefault()
     const form = e.target
     const name = form.name.value
@@ -70,8 +67,7 @@ const JobsCard = ({job}) => {
           });
         })
 
-       
-
+      
 // --------------send email section--------------
 
         emailjs.sendForm('service_74twu2o', 'template_yno6ow1', formm.current, 'f8OiDj-w70sXgI4zP')
@@ -107,7 +103,7 @@ const JobsCard = ({job}) => {
 
 
   
-      const {image,title,salary,description,applicantsN} = job
+      const {image,title,salary,description} = job
     return (
         <div>
 
@@ -131,8 +127,11 @@ const JobsCard = ({job}) => {
            <span className="font-semibold">Salary :</span> {salary}
         </Typography>
         <Typography>
-        <span className="font-semibold">Number of Applicants :</span> {applicantsN}
+        <span className="font-semibold">Number of Applicants :</span> <input type="text" />
         </Typography>
+        <label>Field to Increment:</label>
+        
+        <br />
       </CardBody>
       <CardFooter className=" mx-auto ">
         <Button onClick={handleOpen} >Apply Now</Button>

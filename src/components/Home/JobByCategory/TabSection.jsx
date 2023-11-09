@@ -1,10 +1,15 @@
 
 // import { useEffect, useState } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { Tab, TabList, Tabs } from "react-tabs";
+import { AuthContext } from "../../../Authentication/AuthProvider";
+import toast from "react-hot-toast";
 
 const TabSection = () => {
+
+  const loginAlert = useContext(AuthContext);
+  console.log(loginAlert);
 
 
   
@@ -19,8 +24,7 @@ const TabSection = () => {
     })
     setAllJobs(updatedJob)
   }
-
-
+ 
     
   return (
     <Tabs>
@@ -46,6 +50,20 @@ const TabSection = () => {
         {
           allJobs.map(job=>{
             const {_id,name,title,postingD,salary,applicantsN} = job
+            const handleViewDetailsClick = () => {
+              if (!loginAlert.user) {
+               
+                toast.error('You have to log in first to view details.');
+          
+              
+                history.push('/login');
+                return;
+              }
+          
+              
+              history.push(`/details/${_id}`);
+            };
+          
             return(
               <div key={_id} className="card lg:w-96 w-72 mb-4 bg-base-100 shadow-xl">
           <div className="card-body">
@@ -56,8 +74,8 @@ const TabSection = () => {
             <p><span className="font-serif font-bold">Applicants Number: </span>{applicantsN}</p>
             <div className="card-actions justify-center mt-2">
             <Link to={`/details/${_id}`}>
-        <button className="btn btn-outline">View Details</button>
-        </Link>
+                 <button onClick={handleViewDetailsClick} className="btn btn-outline">View Details</button>
+                 </Link>
             </div>
           </div>
         </div>
