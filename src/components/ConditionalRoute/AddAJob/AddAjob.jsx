@@ -1,5 +1,5 @@
 import { Card, Input, Typography } from "@material-tailwind/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -26,6 +26,7 @@ const AddAjob = () => {
     const postingD = form.postingD.value;
     const applicantsN = form.applicantsN.value;
     const applicantsD = form.applicantsD.value;
+    const applicantsT = form.applicantsT.value;
 
     const formData = {
       name,
@@ -37,6 +38,7 @@ const AddAjob = () => {
       postingD,
       applicantsN,
       applicantsD,
+      applicantsT
     };
     console.log(formData);
 
@@ -68,6 +70,19 @@ const AddAjob = () => {
   const userName = userr.user;
 
   console.log(userName.displayName);
+
+
+  const [currentTime, setCurrentTime] = useState(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+ 
 
   return (
     <div>
@@ -216,6 +231,14 @@ const AddAjob = () => {
                     </svg>
                   }
                 />
+                <Typography variant="h6" color="blue-gray" className="-mb-3">
+                  Application Time:
+                </Typography>
+                <input 
+                name="applicantsT"
+                  type="text" value={currentTime.toLocaleTimeString()} />
+
+                
               </div>
             </div>
           </div>

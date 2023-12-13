@@ -103,7 +103,7 @@ const JobsCard = ({job}) => {
 
 
   
-      const {image,title,salary,description} = job
+      const {image,title,salary,description,applicantsN} = job
     return (
         <div>
 
@@ -127,9 +127,9 @@ const JobsCard = ({job}) => {
            <span className="font-semibold">Salary :</span> {salary}
         </Typography>
         <Typography>
-        <span className="font-semibold">Number of Applicants :</span> <input type="text" />
+        <span className="font-semibold">Number of Applicants :</span> {applicantsN}
         </Typography>
-        <label>Field to Increment:</label>
+        
         
         <br />
       </CardBody>

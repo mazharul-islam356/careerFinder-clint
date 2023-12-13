@@ -23,6 +23,7 @@ const AllJob = () => {
   // console.log(searchValue);
 
  const jobData = useLoaderData()
+ console.log(jobData);
   
 
 
