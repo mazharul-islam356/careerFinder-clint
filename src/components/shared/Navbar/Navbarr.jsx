@@ -13,7 +13,7 @@ const Navbarr = () => {
 
   return (
     <div className="shadow-2xl rounded-lg p-2 my-4 mb-6">
-      <Navbar  fluid rounded>
+      <Navbar fluid rounded>
         <Navbar.Brand href="/">
           <img
             src="/logo&favicon.png"
@@ -49,7 +49,11 @@ const Navbarr = () => {
         <Navbar.Collapse className="lg:mr-52">
           <NavLink
             className={({ isActive, isPending }) =>
-              isPending ? "" : isActive ? "text-[#4cabb9] btn btn-outline btn-sm  " : ""
+              isPending
+                ? ""
+                : isActive
+                ? "text-[#4cabb9] btn btn-outline btn-sm  "
+                : ""
             }
             to="/"
           >
@@ -57,7 +61,11 @@ const Navbarr = () => {
           </NavLink>
           <NavLink
             className={({ isActive, isPending }) =>
-              isPending ? "" : isActive ? "text-[#4cabb9] ml-2 btn btn-outline btn-sm " : ""
+              isPending
+                ? ""
+                : isActive
+                ? "text-[#4cabb9] ml-2 btn btn-outline btn-sm "
+                : ""
             }
             to="/allJobs"
           >
@@ -67,7 +75,11 @@ const Navbarr = () => {
             <>
               <NavLink
                 className={({ isActive, isPending }) =>
-                  isPending ? "" : isActive ? "text-[#4cabb9] btn btn-outline btn-sm" : ""
+                  isPending
+                    ? ""
+                    : isActive
+                    ? "text-[#4cabb9] btn btn-outline btn-sm"
+                    : ""
                 }
                 to="/appliedJob"
               >
@@ -75,7 +87,11 @@ const Navbarr = () => {
               </NavLink>
               <NavLink
                 className={({ isActive, isPending }) =>
-                  isPending ? "" : isActive ? "text-[#4cabb9] btn btn-outline btn-sm " : ""
+                  isPending
+                    ? ""
+                    : isActive
+                    ? "text-[#4cabb9] btn btn-outline btn-sm "
+                    : ""
                 }
                 to="/myJobs"
               >
@@ -83,7 +99,11 @@ const Navbarr = () => {
               </NavLink>
               <NavLink
                 className={({ isActive, isPending }) =>
-                  isPending ? "" : isActive ? "text-[#4cabb9] btn btn-outline btn-sm" : ""
+                  isPending
+                    ? ""
+                    : isActive
+                    ? "text-[#4cabb9] btn btn-outline btn-sm"
+                    : ""
                 }
                 to="/addJob"
               >
@@ -93,7 +113,11 @@ const Navbarr = () => {
           )}
           <NavLink
             className={({ isActive, isPending }) =>
-              isPending ? "" : isActive ? "text-[#4cabb9] btn btn-outline btn-sm" : ""
+              isPending
+                ? ""
+                : isActive
+                ? "text-[#4cabb9] btn btn-outline btn-sm"
+                : ""
             }
             to="/blogs"
           >

@@ -4,7 +4,6 @@ import {  GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged
 import auth from "./firebase/firebase";
 
 
-
 export const AuthContext = createContext()
 const googleProvider = new GoogleAuthProvider();
 

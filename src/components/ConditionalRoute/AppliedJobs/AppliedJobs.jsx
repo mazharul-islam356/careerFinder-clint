@@ -21,10 +21,10 @@ const AppliedJobs = () => {
     
     return (
         <div>
-            <h1 className="text-3xl text-center font-serif underline font-extrabold mt-4">Applied Job</h1>
+            <h1 className="text-3xl text-center font-serif underline font-extrabold mt-4 ">Applied Job</h1>
             {
-                appliedData.map(data=><div key={data._id} className="card mt-4 mb-8 w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
+                appliedData.map(data=><div key={data._id} className="card mt-4 mb-8 w-[28rem] bg-base-100 shadow-xl p-4">
+                <div className="card-body pr-20">
                   <h2 className="card-title">{data.name}</h2>
                   <p> <span className="font-serif font-semibold">User Email:</span> {data.email}</p>
                   <p><span className="font-serif font-semibold">Resume Link: </span>{data.resume}</p>

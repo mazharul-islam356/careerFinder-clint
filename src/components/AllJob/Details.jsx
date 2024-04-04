@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
-import JobsCard from "./JobsCard"
+import JobsCard from "./JobsCard";
 
 const Details = () => {
   const [joB, setJob] = useState([]);
@@ -15,15 +15,11 @@ const Details = () => {
     const findJobs = data.find((job) => job._id === id);
     setJob(findJobs);
     console.log(findJobs);
-  }, [data,id]);
-
-  
+  }, [data, id]);
 
   return (
     <div>
-
-     <JobsCard job={joB}></JobsCard>
-
+      <JobsCard job={joB}></JobsCard>
     </div>
   );
 };

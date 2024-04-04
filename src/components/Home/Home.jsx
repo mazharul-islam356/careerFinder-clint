@@ -5,6 +5,7 @@ import BonusSection from "../ExtraSection/BonusSection";
 import Banner from "./Banner/Banner";
 import TabSection from "./JobByCategory/TabSection";
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
     
@@ -12,10 +13,9 @@ const Home = () => {
     return (
         <div>
           
-            <Link  to="https://wa.me/+8801866186426">
-            <img className="w-12 fixed ms-[83em] mt-[31em]" src="/public/whatsapp.png" alt="" />
+          <Link  to="https://wa.me/+8801866186426">
+           <FaWhatsapp className="text-6xl text-[#48c857] fixed ms-[83rem] mt-[31rem]"></FaWhatsapp>
             </Link>
-
             <Banner></Banner>
             <TabSection></TabSection>
             <Section01></Section01>
