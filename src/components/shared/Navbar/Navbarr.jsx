@@ -39,7 +39,7 @@ const Navbarr = () => {
         </div>
         {user && (
           <Avatar
-            className="lg:relative left-[920px]"
+            className="lg:relative left-[840px]"
             alt="User"
             img={user.photoURL}
             rounded
@@ -126,83 +126,8 @@ const Navbarr = () => {
         </Navbar.Collapse>
       </Navbar>
 
-      {/* 
-<Navbar fluid rounded>
-      <Navbar.Brand href="">
-        <img src="/logo&favicon.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">CareerFinder</span>
-      </Navbar.Brand>
-      <div className="flex md:order-2">
+    
 
-        
-
-        {
-          user? (<NavLink onClick={handleLogOut}>
-
-<button className='btn mr-8'>Log Out</button>
-
-          </NavLink>): (<NavLink to='/login' onClick={handleLogOut}>
-
-<button href="/login" className='btn mr-8'>Login</button>
-
-          </NavLink>)
-         
-        }
-
-        {
-
-         
-          user && <Avatar alt="User" img={user.photoURL}
-           rounded />
-        }
-        
-          
-            
-      
-      </div>
-       
-<div className='lg:flex gap-10'>
-  
-  
-  <NavLink className={({ isActive, isPending }) =>
-          isPending ? "" : isActive ? "text-blue-400  " : ""
-        } to='/'>Home</NavLink>
-        <NavLink
-        className={({ isActive, isPending }) =>
-        isPending ? "" : isActive ? "text-blue-400 ml-2 " : ""
-      }
-        
-        to='/allJobs'>All Jobs</NavLink>
-        {
-          user && <>
-          <NavLink
-          className={({ isActive, isPending }) =>
-          isPending ? "" : isActive ? "text-blue-400 " : ""
-        }
-          to='/appliedJob'>Applied Job</NavLink>
-          <NavLink
-          className={({ isActive, isPending }) =>
-          isPending ? "" : isActive ? "text-blue-400 " : ""
-        }
-          to='/myJobs'>My Jobs</NavLink>
-          <NavLink
-          className={({ isActive, isPending }) =>
-          isPending ? "" : isActive ? "text-blue-400 " : ""
-        }
-          to='/addJob'>Add a Job</NavLink></>
-        }
-        <NavLink
-        className={({ isActive, isPending }) =>
-        isPending ? "" : isActive ? "text-blue-400 " : ""
-      }
-        to='/blogs'>Blog</NavLink>
-  
-
-</div>
-
-
-
-    </Navbar> */}
     </div>
   );
 };
