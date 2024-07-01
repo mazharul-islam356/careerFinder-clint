@@ -86,7 +86,7 @@ const AddAjob = () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-center font-serif underline font-extrabold mt-4">
+      <h1 className="text-3xl text-center border-1 border-gray-300 font-serif border w-80 mx-auto p-3 rounded-full  mt-4 font-popins">
         Add a Job
       </h1>
       <Card color="transparent" shadow={false}>
@@ -242,9 +242,11 @@ const AddAjob = () => {
               </div>
             </div>
           </div>
-          <button className="ml-[600px] btn btn-wide mb-10 mt-2 btn-outline">
+          <div className="flex justify-center">
+          <button className="btn w-80 btn-accent mb-10 mt-2 btn-outline">
             Add job
           </button>
+          </div>
         </form>
       </Card>
     </div>

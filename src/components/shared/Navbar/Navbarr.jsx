@@ -2,6 +2,13 @@ import { Avatar, Button, Navbar } from "flowbite-react";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Authentication/AuthProvider";
+import { CiLogout } from "react-icons/ci";
+
+
+
+
+
+
 const Navbarr = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -12,26 +19,26 @@ const Navbarr = () => {
   };
 
   return (
-    <div className="shadow-2xl rounded-lg p-2 my-4 mb-6">
-      <Navbar fluid rounded>
+    <div className="shadow-lg rounded-lg p-2 my-4 mb-6">
+      <Navbar className="w-11/12 mx-auto" fluid rounded>
         <Navbar.Brand href="/">
           <img
             src="/logo&favicon.png"
             className="mr-3 h-6 sm:h-9"
             alt="Flowbite React Logo"
           />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          <span className="self-center font-popins whitespace-nowrap text-xl font-semibold dark:text-white">
             CareerFinder
           </span>
         </Navbar.Brand>
 
-        <div className="flex md:order-2">
+        <div className="flex md:order-2 ml-8">
           {user ? (
-            <Button outline gradientMonochrome="info" onClick={handleLogOut}>
-              Log Out
+            <Button className="font-semibold" outline gradientMonochrome="info" onClick={handleLogOut}>
+              <CiLogout className="font-bold mr-1" />LogOut
             </Button>
           ) : (
-            <Button outline gradientMonochrome="info" href="/login">
+            <Button gradientMonochrome="info" href="/login">
               Login
             </Button>
           )}

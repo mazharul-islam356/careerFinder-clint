@@ -88,7 +88,7 @@ const authEmail = useContext(AuthContext)
         <div>
 
 <div>
-            <Card className="mt-10 w-96 mb-10">
+            <Card className="mt-10  w-[30rem] mx-auto mb-10">
       <CardHeader color="blue-gray" className="relative h-56">
         <img
         className="w-full h-full"
