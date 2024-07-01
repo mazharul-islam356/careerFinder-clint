@@ -5,6 +5,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import { Tab, TabList, Tabs } from "react-tabs";
 import { AuthContext } from "../../../Authentication/AuthProvider";
 import toast from "react-hot-toast";
+import { MdAlignHorizontalLeft } from "react-icons/md";
+
 
 const TabSection = () => {
 
@@ -34,15 +36,20 @@ const TabSection = () => {
 
       <TabList className="menu-tab lg:flex lg:justify-around lg:ml-0 ml-4 lg:space-x-0 space-y-4 lg:space-y-0 space-x-4 mt-10">
 
-        <Tab className="btn btn-outline btn-sm" onClick={()=>setAllJobs(tabData)}>All Jobs</Tab>
+        <div className="uppercase font- border p-3 rounded-lg cursor-pointer hover:bg-[#386c74] transition-all hover:text-white font-popins">
+        <Tab className="flex gap-1 items-center" onClick={()=>setAllJobs(tabData)}>
+        <MdAlignHorizontalLeft className="text-xl" />
+          All Jobs
+        </Tab>
+        </div>
 
-        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('On Site Job')}>On Site Job</Tab>
+        <Tab className="btn btn-outline btn-sm font-popins" onClick={()=>handlefilterJob('On Site Job')}>On Site Job</Tab>
 
-        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('Remote Job')}>Remote Job</Tab>
+        <Tab className="btn btn-outline btn-sm font-popins" onClick={()=>handlefilterJob('Remote Job')}>Remote Job</Tab>
 
-        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('Hybrid Job')}>Hybrid Job</Tab>
+        <Tab className="btn btn-outline btn-sm font-popins" onClick={()=>handlefilterJob('Hybrid Job')}>Hybrid Job</Tab>
 
-        <Tab className="btn btn-outline btn-sm" onClick={()=>handlefilterJob('Part time Job')}>Part time Job</Tab>
+        <Tab className="btn btn-outline btn-sm font-popins" onClick={()=>handlefilterJob('Part time Job')}>Part time Job</Tab>
 
       </TabList>
 
@@ -61,17 +68,17 @@ const TabSection = () => {
             };
           
             return(
-              <div key={_id} className="card lg:w-96 w-72 mb-4 bg-base-100 shadow-xl">
+              <div key={_id} className="card lg:w-96 h-[30rem] w-72 mb-4 bg-base-100 hover:shadow-xl transition-all border">
           <div className="card-body">
-            <img className="rounded-lg shadow-lg mb-2" src={image} alt="" />
-            <h2 className="card-title">{name}</h2>
-            <p> <span className="font-serif font-bold">Job title: </span> {title}</p>
-            <p><span className="font-serif font-bold">Posting Date: </span>{postingD}</p>
-            <p><span className="font-serif font-bold">Salary: </span>{salary}</p>
-            <p><span className="font-serif font-bold">Applicants Number: </span>{applicantsN}</p>
+            <img className="rounded-lg shadow-lg mb-2 h-40" src={image} alt="" />
+            <h2 className="card-title font-popins w-100 py-2 text-gray-600 text-2xl mx-auto">-{name}-</h2>
+            <p> <span className="font-popins font-bold">Job title: </span> {title}</p>
+            <p><span className="font-popins font-bold">Posting Date: </span>{postingD}</p>
+            <p><span className="font-popins font-bold">Salary: </span>{salary}</p>
+            <p><span className="font-popins font-bold">Applicants Number: </span>{applicantsN}</p>
             <div className="card-actions justify-center mt-2">
             <Link to={`/details/${_id}`}>
-                 <button onClick={handleViewDetailsClick} className="btn btn-outline">View Details</button>
+                 <button onClick={handleViewDetailsClick} className="btn text-white font-popins btn-accent btn-sm btn-wide">View Details</button>
                  </Link>
             </div>
           </div>

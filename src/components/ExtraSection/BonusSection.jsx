@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const BonusSection = () => {
 
-    const form = useRef();
+  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
